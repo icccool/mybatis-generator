@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hydee.h3.pos.mapper.TTransDownLog2Mapper">
+  <resultMap id="BaseResultMap" type="com.hydee.h3.pos.entity.TTransDownLog2">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="conf_id" jdbcType="BIGINT" property="confId" />
+    <result column="busi_type" jdbcType="VARCHAR" property="busiType" />
+    <result column="pos_no" jdbcType="VARCHAR" property="posNo" />
+    <result column="trans_log_type" jdbcType="INTEGER" property="transLogType" />
+    <result column="trans_start_time" jdbcType="TIMESTAMP" property="transStartTime" />
+    <result column="trans_end_time" jdbcType="TIMESTAMP" property="transEndTime" />
+    <result column="trans_total_cnt" jdbcType="BIGINT" property="transTotalCnt" />
+    <result column="trans_success_cnt" jdbcType="BIGINT" property="transSuccessCnt" />
+    <result column="trans_msg" jdbcType="VARCHAR" property="transMsg" />
+    <result column="trans_status" jdbcType="INTEGER" property="transStatus" />
+    <result column="trans_exception_msg" jdbcType="VARCHAR" property="transExceptionMsg" />
+    <result column="trans_sequence" jdbcType="VARCHAR" property="transSequence" />
+    <result column="trans_page_index" jdbcType="INTEGER" property="transPageIndex" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user" jdbcType="BIGINT" property="createUser" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="modify_user" jdbcType="BIGINT" property="modifyUser" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, conf_id, busi_type, pos_no, trans_log_type, trans_start_time, trans_end_time, 
+    trans_total_cnt, trans_success_cnt, trans_msg, trans_status, trans_exception_msg, 
+    trans_sequence, trans_page_index, create_time, create_user, modify_time, modify_user
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_trans_down_log2
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_trans_down_log2
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.hydee.h3.pos.entity.TTransDownLog2">
+    insert into t_trans_down_log2 (id, conf_id, busi_type, 
+      pos_no, trans_log_type, trans_start_time, 
+      trans_end_time, trans_total_cnt, trans_success_cnt, 
+      trans_msg, trans_status, trans_exception_msg, 
+      trans_sequence, trans_page_index, create_time, 
+      create_user, modify_time, modify_user
+      )
+    values (#{id,jdbcType=BIGINT}, #{confId,jdbcType=BIGINT}, #{busiType,jdbcType=VARCHAR}, 
+      #{posNo,jdbcType=VARCHAR}, #{transLogType,jdbcType=INTEGER}, #{transStartTime,jdbcType=TIMESTAMP}, 
+      #{transEndTime,jdbcType=TIMESTAMP}, #{transTotalCnt,jdbcType=BIGINT}, #{transSuccessCnt,jdbcType=BIGINT}, 
+      #{transMsg,jdbcType=VARCHAR}, #{transStatus,jdbcType=INTEGER}, #{transExceptionMsg,jdbcType=VARCHAR}, 
+      #{transSequence,jdbcType=VARCHAR}, #{transPageIndex,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=BIGINT}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hydee.h3.pos.entity.TTransDownLog2">
+    insert into t_trans_down_log2
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="confId != null">
+        conf_id,
+      </if>
+      <if test="busiType != null">
+        busi_type,
+      </if>
+      <if test="posNo != null">
+        pos_no,
+      </if>
+      <if test="transLogType != null">
+        trans_log_type,
+      </if>
+      <if test="transStartTime != null">
+        trans_start_time,
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time,
+      </if>
+      <if test="transTotalCnt != null">
+        trans_total_cnt,
+      </if>
+      <if test="transSuccessCnt != null">
+        trans_success_cnt,
+      </if>
+      <if test="transMsg != null">
+        trans_msg,
+      </if>
+      <if test="transStatus != null">
+        trans_status,
+      </if>
+      <if test="transExceptionMsg != null">
+        trans_exception_msg,
+      </if>
+      <if test="transSequence != null">
+        trans_sequence,
+      </if>
+      <if test="transPageIndex != null">
+        trans_page_index,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+      <if test="modifyUser != null">
+        modify_user,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="confId != null">
+        #{confId,jdbcType=BIGINT},
+      </if>
+      <if test="busiType != null">
+        #{busiType,jdbcType=VARCHAR},
+      </if>
+      <if test="posNo != null">
+        #{posNo,jdbcType=VARCHAR},
+      </if>
+      <if test="transLogType != null">
+        #{transLogType,jdbcType=INTEGER},
+      </if>
+      <if test="transStartTime != null">
+        #{transStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transTotalCnt != null">
+        #{transTotalCnt,jdbcType=BIGINT},
+      </if>
+      <if test="transSuccessCnt != null">
+        #{transSuccessCnt,jdbcType=BIGINT},
+      </if>
+      <if test="transMsg != null">
+        #{transMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="transStatus != null">
+        #{transStatus,jdbcType=INTEGER},
+      </if>
+      <if test="transExceptionMsg != null">
+        #{transExceptionMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="transSequence != null">
+        #{transSequence,jdbcType=VARCHAR},
+      </if>
+      <if test="transPageIndex != null">
+        #{transPageIndex,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=BIGINT},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null">
+        #{modifyUser,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hydee.h3.pos.entity.TTransDownLog2">
+    update t_trans_down_log2
+    <set>
+      <if test="confId != null">
+        conf_id = #{confId,jdbcType=BIGINT},
+      </if>
+      <if test="busiType != null">
+        busi_type = #{busiType,jdbcType=VARCHAR},
+      </if>
+      <if test="posNo != null">
+        pos_no = #{posNo,jdbcType=VARCHAR},
+      </if>
+      <if test="transLogType != null">
+        trans_log_type = #{transLogType,jdbcType=INTEGER},
+      </if>
+      <if test="transStartTime != null">
+        trans_start_time = #{transStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transEndTime != null">
+        trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transTotalCnt != null">
+        trans_total_cnt = #{transTotalCnt,jdbcType=BIGINT},
+      </if>
+      <if test="transSuccessCnt != null">
+        trans_success_cnt = #{transSuccessCnt,jdbcType=BIGINT},
+      </if>
+      <if test="transMsg != null">
+        trans_msg = #{transMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="transStatus != null">
+        trans_status = #{transStatus,jdbcType=INTEGER},
+      </if>
+      <if test="transExceptionMsg != null">
+        trans_exception_msg = #{transExceptionMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="transSequence != null">
+        trans_sequence = #{transSequence,jdbcType=VARCHAR},
+      </if>
+      <if test="transPageIndex != null">
+        trans_page_index = #{transPageIndex,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=BIGINT},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null">
+        modify_user = #{modifyUser,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hydee.h3.pos.entity.TTransDownLog2">
+    update t_trans_down_log2
+    set conf_id = #{confId,jdbcType=BIGINT},
+      busi_type = #{busiType,jdbcType=VARCHAR},
+      pos_no = #{posNo,jdbcType=VARCHAR},
+      trans_log_type = #{transLogType,jdbcType=INTEGER},
+      trans_start_time = #{transStartTime,jdbcType=TIMESTAMP},
+      trans_end_time = #{transEndTime,jdbcType=TIMESTAMP},
+      trans_total_cnt = #{transTotalCnt,jdbcType=BIGINT},
+      trans_success_cnt = #{transSuccessCnt,jdbcType=BIGINT},
+      trans_msg = #{transMsg,jdbcType=VARCHAR},
+      trans_status = #{transStatus,jdbcType=INTEGER},
+      trans_exception_msg = #{transExceptionMsg,jdbcType=VARCHAR},
+      trans_sequence = #{transSequence,jdbcType=VARCHAR},
+      trans_page_index = #{transPageIndex,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=BIGINT},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

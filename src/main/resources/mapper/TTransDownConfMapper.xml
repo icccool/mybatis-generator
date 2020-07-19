@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hydee.h3.pos.mapper.TTransDownConfMapper">
+  <resultMap id="BaseResultMap" type="com.hydee.h3.pos.entity.TTransDownConf">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="busi_type_name" jdbcType="VARCHAR" property="busiTypeName" />
+    <result column="busi_type" jdbcType="VARCHAR" property="busiType" />
+    <result column="trans_type" jdbcType="VARCHAR" property="transType" />
+    <result column="trans_sql_conditions" jdbcType="VARCHAR" property="transSqlConditions" />
+    <result column="trans_url" jdbcType="VARCHAR" property="transUrl" />
+    <result column="busi_main_table" jdbcType="VARCHAR" property="busiMainTable" />
+    <result column="busi_main_table_id" jdbcType="VARCHAR" property="busiMainTableId" />
+    <result column="busi_union_field" jdbcType="VARCHAR" property="busiUnionField" />
+    <result column="dst_handle_strategy" jdbcType="TINYINT" property="dstHandleStrategy" />
+    <result column="busi_trans_frequency" jdbcType="INTEGER" property="busiTransFrequency" />
+    <result column="busi_is_skip" jdbcType="TINYINT" property="busiIsSkip" />
+    <result column="busi_trans_order" jdbcType="INTEGER" property="busiTransOrder" />
+    <result column="busi_page_size" jdbcType="INTEGER" property="busiPageSize" />
+    <result column="busi_conf_try_times" jdbcType="TINYINT" property="busiConfTryTimes" />
+    <result column="busi_retry_times" jdbcType="TINYINT" property="busiRetryTimes" />
+    <result column="busi_notes" jdbcType="VARCHAR" property="busiNotes" />
+    <result column="busi_conf_version" jdbcType="VARCHAR" property="busiConfVersion" />
+    <result column="trans_timestamp" jdbcType="TIMESTAMP" property="transTimestamp" />
+    <result column="trans_offset_id" jdbcType="BIGINT" property="transOffsetId" />
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_user" jdbcType="BIGINT" property="createUser" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="modify_user" jdbcType="BIGINT" property="modifyUser" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, busi_type_name, busi_type, trans_type, trans_sql_conditions, trans_url, busi_main_table, 
+    busi_main_table_id, busi_union_field, dst_handle_strategy, busi_trans_frequency, 
+    busi_is_skip, busi_trans_order, busi_page_size, busi_conf_try_times, busi_retry_times, 
+    busi_notes, busi_conf_version, trans_timestamp, trans_offset_id, is_delete, create_time, 
+    create_user, modify_time, modify_user
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_trans_down_conf
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_trans_down_conf
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.hydee.h3.pos.entity.TTransDownConf">
+    insert into t_trans_down_conf (id, busi_type_name, busi_type, 
+      trans_type, trans_sql_conditions, trans_url, 
+      busi_main_table, busi_main_table_id, busi_union_field, 
+      dst_handle_strategy, busi_trans_frequency, 
+      busi_is_skip, busi_trans_order, busi_page_size, 
+      busi_conf_try_times, busi_retry_times, busi_notes, 
+      busi_conf_version, trans_timestamp, trans_offset_id, 
+      is_delete, create_time, create_user, 
+      modify_time, modify_user)
+    values (#{id,jdbcType=BIGINT}, #{busiTypeName,jdbcType=VARCHAR}, #{busiType,jdbcType=VARCHAR}, 
+      #{transType,jdbcType=VARCHAR}, #{transSqlConditions,jdbcType=VARCHAR}, #{transUrl,jdbcType=VARCHAR}, 
+      #{busiMainTable,jdbcType=VARCHAR}, #{busiMainTableId,jdbcType=VARCHAR}, #{busiUnionField,jdbcType=VARCHAR}, 
+      #{dstHandleStrategy,jdbcType=TINYINT}, #{busiTransFrequency,jdbcType=INTEGER}, 
+      #{busiIsSkip,jdbcType=TINYINT}, #{busiTransOrder,jdbcType=INTEGER}, #{busiPageSize,jdbcType=INTEGER}, 
+      #{busiConfTryTimes,jdbcType=TINYINT}, #{busiRetryTimes,jdbcType=TINYINT}, #{busiNotes,jdbcType=VARCHAR}, 
+      #{busiConfVersion,jdbcType=VARCHAR}, #{transTimestamp,jdbcType=TIMESTAMP}, #{transOffsetId,jdbcType=BIGINT}, 
+      #{isDelete,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=BIGINT}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hydee.h3.pos.entity.TTransDownConf">
+    insert into t_trans_down_conf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="busiTypeName != null">
+        busi_type_name,
+      </if>
+      <if test="busiType != null">
+        busi_type,
+      </if>
+      <if test="transType != null">
+        trans_type,
+      </if>
+      <if test="transSqlConditions != null">
+        trans_sql_conditions,
+      </if>
+      <if test="transUrl != null">
+        trans_url,
+      </if>
+      <if test="busiMainTable != null">
+        busi_main_table,
+      </if>
+      <if test="busiMainTableId != null">
+        busi_main_table_id,
+      </if>
+      <if test="busiUnionField != null">
+        busi_union_field,
+      </if>
+      <if test="dstHandleStrategy != null">
+        dst_handle_strategy,
+      </if>
+      <if test="busiTransFrequency != null">
+        busi_trans_frequency,
+      </if>
+      <if test="busiIsSkip != null">
+        busi_is_skip,
+      </if>
+      <if test="busiTransOrder != null">
+        busi_trans_order,
+      </if>
+      <if test="busiPageSize != null">
+        busi_page_size,
+      </if>
+      <if test="busiConfTryTimes != null">
+        busi_conf_try_times,
+      </if>
+      <if test="busiRetryTimes != null">
+        busi_retry_times,
+      </if>
+      <if test="busiNotes != null">
+        busi_notes,
+      </if>
+      <if test="busiConfVersion != null">
+        busi_conf_version,
+      </if>
+      <if test="transTimestamp != null">
+        trans_timestamp,
+      </if>
+      <if test="transOffsetId != null">
+        trans_offset_id,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+      <if test="modifyUser != null">
+        modify_user,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="busiTypeName != null">
+        #{busiTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="busiType != null">
+        #{busiType,jdbcType=VARCHAR},
+      </if>
+      <if test="transType != null">
+        #{transType,jdbcType=VARCHAR},
+      </if>
+      <if test="transSqlConditions != null">
+        #{transSqlConditions,jdbcType=VARCHAR},
+      </if>
+      <if test="transUrl != null">
+        #{transUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="busiMainTable != null">
+        #{busiMainTable,jdbcType=VARCHAR},
+      </if>
+      <if test="busiMainTableId != null">
+        #{busiMainTableId,jdbcType=VARCHAR},
+      </if>
+      <if test="busiUnionField != null">
+        #{busiUnionField,jdbcType=VARCHAR},
+      </if>
+      <if test="dstHandleStrategy != null">
+        #{dstHandleStrategy,jdbcType=TINYINT},
+      </if>
+      <if test="busiTransFrequency != null">
+        #{busiTransFrequency,jdbcType=INTEGER},
+      </if>
+      <if test="busiIsSkip != null">
+        #{busiIsSkip,jdbcType=TINYINT},
+      </if>
+      <if test="busiTransOrder != null">
+        #{busiTransOrder,jdbcType=INTEGER},
+      </if>
+      <if test="busiPageSize != null">
+        #{busiPageSize,jdbcType=INTEGER},
+      </if>
+      <if test="busiConfTryTimes != null">
+        #{busiConfTryTimes,jdbcType=TINYINT},
+      </if>
+      <if test="busiRetryTimes != null">
+        #{busiRetryTimes,jdbcType=TINYINT},
+      </if>
+      <if test="busiNotes != null">
+        #{busiNotes,jdbcType=VARCHAR},
+      </if>
+      <if test="busiConfVersion != null">
+        #{busiConfVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="transTimestamp != null">
+        #{transTimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transOffsetId != null">
+        #{transOffsetId,jdbcType=BIGINT},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=BIGINT},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null">
+        #{modifyUser,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hydee.h3.pos.entity.TTransDownConf">
+    update t_trans_down_conf
+    <set>
+      <if test="busiTypeName != null">
+        busi_type_name = #{busiTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="busiType != null">
+        busi_type = #{busiType,jdbcType=VARCHAR},
+      </if>
+      <if test="transType != null">
+        trans_type = #{transType,jdbcType=VARCHAR},
+      </if>
+      <if test="transSqlConditions != null">
+        trans_sql_conditions = #{transSqlConditions,jdbcType=VARCHAR},
+      </if>
+      <if test="transUrl != null">
+        trans_url = #{transUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="busiMainTable != null">
+        busi_main_table = #{busiMainTable,jdbcType=VARCHAR},
+      </if>
+      <if test="busiMainTableId != null">
+        busi_main_table_id = #{busiMainTableId,jdbcType=VARCHAR},
+      </if>
+      <if test="busiUnionField != null">
+        busi_union_field = #{busiUnionField,jdbcType=VARCHAR},
+      </if>
+      <if test="dstHandleStrategy != null">
+        dst_handle_strategy = #{dstHandleStrategy,jdbcType=TINYINT},
+      </if>
+      <if test="busiTransFrequency != null">
+        busi_trans_frequency = #{busiTransFrequency,jdbcType=INTEGER},
+      </if>
+      <if test="busiIsSkip != null">
+        busi_is_skip = #{busiIsSkip,jdbcType=TINYINT},
+      </if>
+      <if test="busiTransOrder != null">
+        busi_trans_order = #{busiTransOrder,jdbcType=INTEGER},
+      </if>
+      <if test="busiPageSize != null">
+        busi_page_size = #{busiPageSize,jdbcType=INTEGER},
+      </if>
+      <if test="busiConfTryTimes != null">
+        busi_conf_try_times = #{busiConfTryTimes,jdbcType=TINYINT},
+      </if>
+      <if test="busiRetryTimes != null">
+        busi_retry_times = #{busiRetryTimes,jdbcType=TINYINT},
+      </if>
+      <if test="busiNotes != null">
+        busi_notes = #{busiNotes,jdbcType=VARCHAR},
+      </if>
+      <if test="busiConfVersion != null">
+        busi_conf_version = #{busiConfVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="transTimestamp != null">
+        trans_timestamp = #{transTimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transOffsetId != null">
+        trans_offset_id = #{transOffsetId,jdbcType=BIGINT},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=BIGINT},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyUser != null">
+        modify_user = #{modifyUser,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hydee.h3.pos.entity.TTransDownConf">
+    update t_trans_down_conf
+    set busi_type_name = #{busiTypeName,jdbcType=VARCHAR},
+      busi_type = #{busiType,jdbcType=VARCHAR},
+      trans_type = #{transType,jdbcType=VARCHAR},
+      trans_sql_conditions = #{transSqlConditions,jdbcType=VARCHAR},
+      trans_url = #{transUrl,jdbcType=VARCHAR},
+      busi_main_table = #{busiMainTable,jdbcType=VARCHAR},
+      busi_main_table_id = #{busiMainTableId,jdbcType=VARCHAR},
+      busi_union_field = #{busiUnionField,jdbcType=VARCHAR},
+      dst_handle_strategy = #{dstHandleStrategy,jdbcType=TINYINT},
+      busi_trans_frequency = #{busiTransFrequency,jdbcType=INTEGER},
+      busi_is_skip = #{busiIsSkip,jdbcType=TINYINT},
+      busi_trans_order = #{busiTransOrder,jdbcType=INTEGER},
+      busi_page_size = #{busiPageSize,jdbcType=INTEGER},
+      busi_conf_try_times = #{busiConfTryTimes,jdbcType=TINYINT},
+      busi_retry_times = #{busiRetryTimes,jdbcType=TINYINT},
+      busi_notes = #{busiNotes,jdbcType=VARCHAR},
+      busi_conf_version = #{busiConfVersion,jdbcType=VARCHAR},
+      trans_timestamp = #{transTimestamp,jdbcType=TIMESTAMP},
+      trans_offset_id = #{transOffsetId,jdbcType=BIGINT},
+      is_delete = #{isDelete,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=BIGINT},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modify_user = #{modifyUser,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

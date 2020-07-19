@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="mysqlgenerator" targetRuntime="MyBatis3">
+
+        <commentGenerator >
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true" />
+            <property name="addRemarkComments" value="false"/>
+            <property name="javaFileEncoding" value="UTF-8"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.10.130:3306/h3_pos_manage?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"
+                        userId="agent"
+                        password="agent123" />
+
+        <javaTypeResolver >
+            <!--type="org.mybatis.generator.internal.types.MyJavaTypeResolverDefaultImpl"-->
+            <property name="forceBigDecimals" value="false"></property>
+
+        </javaTypeResolver>
+
+
+        <javaModelGenerator targetPackage="com.hydee.h3.pos.entity" targetProject="src/main/java" />
+
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources" />
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.hydee.h3.pos.mapper" targetProject="src/main/java" />
+
+        <table tableName="t_trans_down_conf"
+            enableCountByExample="false" enableUpdateByExample="false"
+            enableDeleteByExample="false" enableSelectByExample="false">
+<!--            <domainObjectRenamingRule searchString="^T" replaceString="" />-->
+        </table>
+
+
+
+    </context>
+
+
+</generatorConfiguration>
