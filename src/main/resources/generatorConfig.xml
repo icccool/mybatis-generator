@@ -15,7 +15,7 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://192.168.10.130:3306/h3_pos_manage?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"
+                        connectionURL="jdbc:mysql://192.168.10.130:3306/h3_store?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"
                         userId="agent"
                         password="agent123" />
 
@@ -32,12 +32,11 @@
 
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.hydee.h3.pos.mapper" targetProject="src/main/java" />
 
-        <table tableName="t_trans_down_conf"
+        <table tableName="t_store_yinhai_add_stock"
             enableCountByExample="false" enableUpdateByExample="false"
             enableDeleteByExample="false" enableSelectByExample="false">
 <!--            <domainObjectRenamingRule searchString="^T" replaceString="" />-->
         </table>
-
 
 
     </context>
