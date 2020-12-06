@@ -32,10 +32,10 @@
 
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.hydee.h3.pos.mapper" targetProject="src/main/java" />
 
-        <table tableName="t_store_yinhai_add_stock"
+        <table tableName="t_store_yinhai_add_stock_main"
             enableCountByExample="false" enableUpdateByExample="false"
             enableDeleteByExample="false" enableSelectByExample="false">
-<!--            <domainObjectRenamingRule searchString="^T" replaceString="" />-->
+            <domainObjectRenamingRule searchString="^T" replaceString="" />
         </table>
 
 
